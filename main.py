@@ -15,18 +15,18 @@ def on_press(key):
     
     return False
 
-print("Нажмите клавишу, которую нужно нажимать:")  
+print("Press the key you want to press:")  
 
 with Listener(on_press=on_press) as listener:
     listener.join()
     
 if key_to_press is None:
-    print("Клавиша не нажата")
+    print("Key not pressed")
 else:
-    delay = float(input("Введите интервал нажатия клавиши (сек): "))
+    delay = float(input("Enter the key press interval (sec): "))
 
-    print("У тебя есть 10 секунд чтобы зайти в GTA 5")
-    time.sleep(first_delay)
+    print("You have 10 seconds to get into the right window.")
+    threading.Event().wait(first_delay)
 
     while True:
         pyautogui.press(key_to_press)
